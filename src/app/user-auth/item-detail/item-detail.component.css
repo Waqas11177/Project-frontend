@@ -1,0 +1,17 @@
+
+button{
+    width: 20%;
+    float: right;
+    }
+    
+  th{
+    background-color: blue;
+  }
+  thead{
+    
+    color: black;
+  }
+  h5,label{
+    color: black;
+  }
+  

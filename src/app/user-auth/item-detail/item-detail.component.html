@@ -1,0 +1,32 @@
+<div class="card-body ">
+    <button style="gap: 1%;" class="btn btn-primary" (click)="addRow()">Add (+)</button>
+    
+
+</div>
+<br><br>
+
+<div class="card-body">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>SRN</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Qty</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of tableData; let i = index">
+                <td>{{ i + 1 }}</td>
+                <td><input type="text" [(ngModel)]="row.itemName" minlength="1" maxlength="20" /></td>
+                <td><input type="text" [(ngModel)]="row.itemDescription" minlength="1" maxlength="20" /></td>
+                <td><input type="number" [(ngModel)]="row.qty" /></td>
+                <td><button style="float: none; width: 50%;" class="btn btn-secondary" (click)="removeRow(i)" [disabled]="i === 0">Remove</button></td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+

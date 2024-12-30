@@ -1,0 +1,122 @@
+
+
+
+<app-header></app-header>
+<!-- <app-sidebar></app-sidebar> -->
+
+<app-sidebar [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-sidebar>
+<!-- <div class="content" ngbAccordionToggle="{ 'sidebarExpanded': sidebarExpanded }"> -->
+<!-- </div> -->
+<!-- <h1>{{updateitem}}</h1>
+<app-login (UpdateDataEvent)="UpdateDatas($event)"></app-login>
+<br><br>
+<app-signin></app-signin>
+
+<app-student-list></app-student-list>
+
+<h1>{{title}}</h1>
+
+<button (click)="getName('Waqas')">Click</button>
+<br/><br/>
+<button (click)="Counter('add')">add</button>
+<br/><br/>
+<button (click)="Counter('minus')">minus</button>
+<br/><br/>
+<p>{{count}}</p>
+
+
+<input type="text" placeholder="UserName" [(ngModel)]="name" #box (keyup)="getusername(box.value)" name="box.value"/>
+<br/>
+<br/>
+<h3>{{name}}</h3>
+<br/>
+<br/>
+<input type="text" placeholder="Lastname" #box1 (keypress)="getusername(box1.value)" name="box1.value"/>
+
+@if(show){
+  <h1 >If condition</h1>
+}
+@for (item of users.name; track $index) {
+<ul>
+<li>
+  {{users.name}}
+</li>  
+</ul>
+  
+}
+<div ngbAccordion>
+	<div ngbAccordionItem [collapsed]="false">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>Simple</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<div ngbAccordionItem>
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>
+				<span>&#9733; <b>Fancy</b> title &#9733;</span>
+			</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+	<div ngbAccordionItem [disabled]="true">
+		<h2 ngbAccordionHeader>
+			<button ngbAccordionButton>Disabled</button>
+		</h2>
+		<div ngbAccordionCollapse>
+			<div ngbAccordionBody>
+				<ng-template>
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon
+					officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf
+					moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim
+					keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur
+					butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably
+					haven't heard of them accusamus labore sustainable VHS.
+				</ng-template>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<br><br>
+
+<input type="text" #task />
+<br><br>
+<button (click)="gettask(task.value)">
+  Task Add
+</button>
+@for (item of list; track $index) {
+  <ul>
+  <li>
+    {{item.name}}
+    <button (click)="removetask(item.id)">Remove</button> 
+  </li> 
+  </ul>
+    
+  } -->
+
+  <app-footer></app-footer>
+

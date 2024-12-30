@@ -1,0 +1,53 @@
+<div class="login">
+    <form #loginForm="ngForm" (ngSubmit)="getDataForm(loginForm.value)">
+      <h1>Sign In</h1>
+      <br>
+  
+      <!-- Username Input -->
+      <input 
+        type="text" 
+        name="user" 
+        [(ngModel)]="loginData.userName" 
+        required 
+        placeholder="Enter Username" 
+        #user="ngModel"
+      />
+      <br>
+      <!-- Display error if username is invalid -->
+      <div *ngIf="user.invalid && user.touched" style="color: red;">
+        Username is required.
+      </div>
+  
+      <!-- Password Input -->
+      <input 
+        type="password" 
+        name="password" 
+        [(ngModel)]="loginData.password" 
+        required 
+        minlength="5" 
+        placeholder="Enter Password" 
+        #password="ngModel"
+      />
+      <br>
+      <!-- Display error if password is invalid -->
+      <div *ngIf="password.invalid && password.touched" style="color: red;">
+        Password must be enter.
+      </div>
+  
+      <!-- Sign In button -->
+      <button type="submit" [disabled]="loginForm.invalid">
+        Sign In
+      </button>
+  
+      <!-- Error message display -->
+      <div *ngIf="error" style="color: red;">
+        {{ error }}
+      </div>
+  
+      <!-- Success message display -->
+      <div *ngIf="successMessage" style="color: green;">
+        {{ successMessage }}
+      </div>
+    </form>
+  </div>
+  

@@ -1,0 +1,155 @@
+<div #abc class="card-body ">
+  <button class="btn btn-primary" routerLink="/createcategory">Create</button>
+</div>
+
+<div class="card-body">
+  <table class="table table-bordered" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+      <tr>
+        <th>SRN</th>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of categorylists; let i = index; trackBy: trackById">
+      <tr>
+        <td>
+          <a class="toggle-btn mx-3" (click)="toggleRow(i); selectCategory(item.name,item.id); getchildCategory(item.name)">
+            {{ expandedRows[i] ? '-' : '+' }}
+          </a>
+          {{ i + 1 }}
+        </td>
+        <td>{{ item.name }}</td>
+        <td>
+          <button class="btn btn-success btn-action"
+            (click)="openEditModal(); selectCategory(item.name,item.id)">Create</button>
+          <button class="btn btn-primary btn-action"
+            (click)="openEditModals();selectCategory(item.name,item.id)">Edit</button>
+        </td>
+      </tr>
+
+      <tr *ngIf="expandedRows[i]">
+        <td colspan="4">
+          <div class="p-3 border bg-light child-level">
+            <h5>Child Category Details</h5>
+            <table class="table table-sm">
+              <thead>
+                <tr>
+                  <th>SRN</th>
+                  <th>Child Category</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let child of Childlists; let j = index; trackBy: trackById">
+                <tr>
+                  <td>
+                    <a class="toggle-btn mx-3"
+                      (click)="toggleRow('child_' + j);selectCategory(child.childCatName,child.id); getsubchildCategory(child.childCatName)">
+                      {{ expandedRows['child_' + j] ? '-' : '+' }}
+                    </a>
+                    {{ j + 1 }}
+                  </td>
+                  <td>{{ child.childCatName }}</td>
+                  <td>
+                    <button class="btn btn-success btn-action"
+                      (click)="openEditModal();selectCategory(child.childCatName,child.id)">Create</button>
+                    <button class="btn btn-primary btn-action"
+                      (click)="openEditModals();selectCategory(child.childCatName,child.id)">Edit</button>
+                  </td>
+                </tr>
+                <tr *ngIf="expandedRows['child_' + j]">
+                  <td colspan="3">
+                    <div class="p-3 border bg-light sub-child-level">
+                      <h5>Sub Child Category Details</h5>
+                      <table class="table table-sm">
+                        <thead>
+                          <tr>
+                            <th>SRN</th>
+                            <th>Sub Child Category</th>
+                            <th>Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let subChild of Childlistss; let k = index; trackBy: trackById">
+                            <td>{{ k + 1 }}</td>
+                            <td>{{ subChild.childCatName }}</td>
+                            <td>
+                              <button class="btn btn-success btn-action"
+                                (click)="openEditModals();selectCategory(subChild.childCatName,subChild.id)">Edit</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+<div class="modal" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Create Child</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+
+          <input hidden type="text" class="form-control" id="childId" [(ngModel)]="categorytype" />
+
+          <label for="parentCategory">Parent Category Name</label>
+          <input type="text" class="form-control" id="parentCategory" [(ngModel)]="selectedCategory" />
+
+            <label for="childName">Child Category Name</label>
+            <input type="text" class="form-control" id="childName" [(ngModel)]="selectchilds.childCatName" />
+          
+       
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Close</button>
+        <button type="button" class="btn btn-success" (click)="saveChanges()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="editModals" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Update</h5>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+
+          <input hidden type="text" class="form-control" id="childId" [(ngModel)]="categorytype" />
+
+          <label for="parentCategory">Category Name</label>
+          <input type="text" class="form-control" id="parentCategory" [(ngModel)]="selectedCategory" />
+            @if(updateparent!==true){
+              <label for="childName">Child Category Name</label>
+              <input type="text" class="form-control" id="childName" [(ngModel)]="selectchilds.childCatName" />
+            }
+        
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeEditModals()">Close</button>
+        <button type="button" class="btn btn-success" (click)="updateChanges()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

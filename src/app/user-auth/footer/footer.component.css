@@ -1,0 +1,29 @@
+/* Basic styling for the footer */
+.footer {
+    position: fixed;
+    bottom:0%;
+    background-color: #0f1017;
+    width: 100%;
+    padding: 10px;
+    text-align: center; /* Center the content inside the footer */
+    box-sizing: border-box;
+}
+
+/* Ensuring the footer sticks at the bottom, but does not overlap the content */
+
+
+
+
+/* Footer on mobile screens */
+@media (max-width: 768px) {
+    .footer {
+        padding: 5px; /* Adjust padding for small screens */
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+}
+
+/* Ensuring footer sticks to the bottom when content is smaller than the viewport */
+.footer {
+    position: fixed;
+    bottom: 0;/* Push the footer to the bottom */
+}

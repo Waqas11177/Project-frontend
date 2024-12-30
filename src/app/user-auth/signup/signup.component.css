@@ -1,0 +1,75 @@
+/* Basic styling for the form */
+.login {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 12%;
+  }
+  
+  .login h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
+  
+  button:disabled {
+    background-color: #cccccc;
+  }
+  
+  span {
+    font-size: 12px;
+    color: red;
+  }
+  
+  div {
+    margin-bottom: 10px;
+  }
+  
+  /* Media queries for responsiveness */
+  @media (max-width: 768px) {
+    .login {
+      padding: 15px;
+      width: 90%; /* Adjust form width for small screens */
+    }
+  
+    input[type="text"],
+    input[type="password"],
+    button {
+      font-size: 14px; /* Smaller text on smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .login {
+      padding: 10px;
+      width: 100%; /* Make form full-width on extremely small screens */
+    }
+  
+    input[type="text"],
+    input[type="password"],
+    button {
+      font-size: 12px;
+    }
+  }
+  

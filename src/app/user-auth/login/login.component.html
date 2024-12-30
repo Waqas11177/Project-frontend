@@ -1,0 +1,51 @@
+<!-- <p>Child</p>
+
+
+<input type="text" #update/>&nbsp;
+<button (click)="UpdateDataEvent.emit(update.value)">Update Data</button>
+<br/><br/> -->
+@if(error){
+  <div  style="color: red;">
+    {{error}}
+  </div>
+}
+@if(successMessage){
+  <div  style="color: green;">
+    {{successMessage}}
+  </div>
+}
+
+<div class="login">
+  <form [formGroup]="loginform" (ngSubmit)="getDataForm()">
+     <h1 >Sign up</h1>
+     <br>
+    <input type="text" maxlength="10" placeholder="Enter Username" name="user" formControlName="user"/>
+    <br>
+    <span style="color: red;" *ngIf="loginform.get('user')?.hasError('required') && loginform.get('user')?.touched">
+        Username is required.
+      </span>
+    <br/><br/>
+    <input type="text" maxlength="10" placeholder="Enter Lastname" name="Lastname" formControlName="Lastname"/>
+    <br>
+    <span style="color: red;" maxlength="10" *ngIf="loginform.get('Lastname')?.hasError('required') && loginform.get('Lastname')?.touched">
+        Lastname is required.
+      </span>
+    <br/><br/>
+    <input type="password"  placeholder="Enter Password" name="password" formControlName="password"/>
+    <br>
+    <span style="color: red;"  minlength="5" *ngIf="loginform.get('password')?.hasError('required') && loginform.get('password')?.touched">
+      Password is required.
+    </span>
+    <br/><br/>
+    <input type="text"  placeholder="Enter Email" name="email" formControlName="email"/>
+    <span style="color: red;"  minlength="5" *ngIf="loginform.get('email')?.hasError('required') && loginform.get('email')?.touched">
+      Email is required.
+    </span>
+    <br/><br/>
+    
+    <button [disabled]="loginform.invalid">
+        Sign Up
+    </button>
+</form>
+</div>
+
