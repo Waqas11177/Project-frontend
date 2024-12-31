@@ -1,74 +1,81 @@
-<form #loginForm="ngForm" (ngSubmit)="saveData(loginForm.value)" #form="ngForm">
-    <div style="margin-top: 80px;" class="card-body">
-        <div class="form-group">
-            <span class="label">Item Code:</span>
-            <input readonly name="childCatName" [(ngModel)]="childCatName"  class="input-field" />
-        </div>
-        
-        <br><br>
-        <div class="form-group">
-            <span class="label">Item Category:</span>
-            <!-- <select name="name" class="input-field" matNativeControl [(ngModel)]="selectedCategorys" required #category="ngModel">
-                <option *ngFor="let parent of categorylists" [value]="parent.name">
-                    {{ parent.name }}
-                </option>
-            </select> -->
-            <select name="name" class="input-field" matNativeControl [(ngModel)]="selectedCategorys" required #category="ngModel">
-                <option *ngFor="let parent of categorylists" [value]="parent.name">
-                    {{ parent.name }}
-                </option>
-            </select>
-            <div class="form-group" *ngIf="category.invalid && category.touched" class="error-message">Item Category is required.</div>
-        </div>
-        
-    </div>
-    
-    <div class="card-body">
-        <div class="form-group">
-            <span class="label">Item Search:</span>
-            <input name="searchTerm" [(ngModel)]="searchTerm"  class="input-field" (input)="getmasterdata(searchTerm);getdetaildata(searchTerm)" />
-        </div>
-        <button type="button" class="btn btn-primary" (click)="addRow()">Add (+)</button>
-    </div>
-    <br><br>
 
-    <div class="card-body">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>SRN</th>
-                    <th hidden>Id</th>
-                    <th>Item Name</th>
-                    <th>Item Description</th>
-                    <th>Qty</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let row of tableData; let i = index; trackBy: trackByIndex">
-                    <td>{{ i + 1 }}</td>
-                    <td hidden>
-                        <input #id_{{i}}="ngModel" name="id{{i}}" type="text"  [(ngModel)]="row.id" minlength="1" maxlength="20" required>
-                    </td>
-                    <td>
-                        <input #name_{{i}}="ngModel" name="name_{{i}}" type="text"  [(ngModel)]="row.name" minlength="1" maxlength="20" required />
-                    </td>
-                    <td>
-                        <input #description_{{i}}="ngModel" name="description_{{i}}" type="text" [(ngModel)]="row.description" minlength="1" maxlength="20" required />
-                    </td>
-                    <td>
-                        <input #qty_{{i}}="ngModel" name="qty_{{i}}" type="number" [(ngModel)]="row.qty" required />
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-secondary" (click)="removeRow(i)" [disabled]="i === 0">
-                            Remove
-                        </button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="card">
+        <div class="card-body">
+            <form #loginForm="ngForm" (ngSubmit)="saveData(loginForm.value)" #form="ngForm">
+                <div style="margin-top: 80px;" class="card-body">
+                    <div class="form-group">
+                        <span class="label">Item Code:</span>
+                        <input readonly name="childCatName" [(ngModel)]="childCatName"  class="input-field" />
+                    </div>
+                    
+                    <br><br>
+                    <div class="form-group">
+                        <span class="label">Item Category:</span>
+                        <!-- <select name="name" class="input-field" matNativeControl [(ngModel)]="selectedCategorys" required #category="ngModel">
+                            <option *ngFor="let parent of categorylists" [value]="parent.name">
+                                {{ parent.name }}
+                            </option>
+                        </select> -->
+                        <select name="name" class="input-field" matNativeControl [(ngModel)]="selectedCategorys" required #category="ngModel">
+                            <option *ngFor="let parent of categorylists" [value]="parent.name">
+                                {{ parent.name }}
+                            </option>
+                        </select>
+                        <div class="form-group" *ngIf="category.invalid && category.touched" class="error-message">Item Category is required.</div>
+                    </div>
+                    
+                </div>
+                
+                    <div class="form-group">
+                        <span class="label">Item Search:</span>
+                        <input name="searchTerm" [(ngModel)]="searchTerm"  class="input-field" (input)="getmasterdata(searchTerm);getdetaildata(searchTerm)" />
+                    </div>
+                    <button type="button" class="btn btn-primary" (click)="addRow()">Add (+)</button>
+            
+                <br><br>
+            
+                <div class="card-body">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>SRN</th>
+                                <th hidden>Id</th>
+                                <th>Item Name</th>
+                                <th>Item Description</th>
+                                <th>Qty</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of tableData; let i = index; trackBy: trackByIndex">
+                                <td>{{ i + 1 }}</td>
+                                <td hidden>
+                                    <input #id_{{i}}="ngModel" name="id{{i}}" type="text"  [(ngModel)]="row.id" minlength="1" maxlength="20" required>
+                                </td>
+                                <td>
+                                    <input #name_{{i}}="ngModel" name="name_{{i}}" type="text"  [(ngModel)]="row.name" minlength="1" maxlength="20" required />
+                                </td>
+                                <td>
+                                    <input #description_{{i}}="ngModel" name="description_{{i}}" type="text" [(ngModel)]="row.description" minlength="1" maxlength="20" required />
+                                </td>
+                                <td>
+                                    <input #qty_{{i}}="ngModel" name="qty_{{i}}" type="number" [(ngModel)]="row.qty" required />
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-secondary" (click)="removeRow(i)" [disabled]="i === 0">
+                                        Remove
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Save</button> &nbsp;
+                <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
+            </form>
+        </div>
     </div>
 
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Save</button> &nbsp;
-    <button type="button" class="btn btn-primary" (click)="cancel()">Cancel</button>
-</form>
+
+
+

@@ -1,11 +1,15 @@
 <!-- <h1>Oops !!!!! Page Not Found</h1> -->
-<div class="parent">
-    <h2>Parent Component</h2>
-    <ul>
-        <li *ngFor="let bev of newbeverage">
-            {{bev}}
-        </li>
-    </ul>
-
-    <app-master [abc]="abc" (newabcevent)="addabc($event)"></app-master>
-</div>
+ <div class="card">
+    <div class="card-body">
+        <div class="parent">
+            <h2>Parent Component</h2>
+            <ul>
+                <li *ngFor="let bev of newbeverage">
+                    {{bev}}
+                </li>
+            </ul>
+            <app-master [abc]="abc" (newabcevent)="addabc($event)"></app-master>
+        </div>
+    </div>
+  
+ </div>

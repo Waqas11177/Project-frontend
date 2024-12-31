@@ -12,3 +12,10 @@ li{
     list-style: circle;
     color: black;
 }
+.card {
+    margin-top: 3%;
+    margin-left: 6%;
+  }
+.card-body {
+    margin-left: 20px;
+  }

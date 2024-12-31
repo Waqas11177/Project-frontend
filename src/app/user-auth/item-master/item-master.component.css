@@ -31,8 +31,9 @@ h5, label {
   margin-left: 20%;
 }
 
-.card-body {
-  margin-top: 20px;
+.card {
+  margin-top: 3%;
+  margin-left: 5%;
 }
 input[readonly] {
   background-color: lightgrey;  
@@ -52,7 +53,7 @@ input[readonly] {
 }
 
 .btn {
-  padding: 10px;
+  padding: 5px;
   margin: 5px;
 }
 
@@ -90,7 +91,7 @@ button:disabled {
 }
 
 .input-field {
-  width: 20%;
+  width: 18%;
   padding: 5px;
   border: 1px solid #ccc;
   font-size: 16px;

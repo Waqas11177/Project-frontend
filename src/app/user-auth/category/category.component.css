@@ -161,7 +161,10 @@ input[type="text"] {
   border: 1px solid #ced4da;
   border-radius: 4px;
 }
-
+.card {
+  margin-top: 3%;
+  margin-left: 5%;
+}
 /* Table Child Row */
 table.p-3 {
   margin-top: 10px;

@@ -4,7 +4,7 @@
     bottom:0%;
     background-color: #0f1017;
     width: 100%;
-    padding: 10px;
+    padding: 3px;
     text-align: center; /* Center the content inside the footer */
     box-sizing: border-box;
 }
@@ -18,7 +18,7 @@
 @media (max-width: 768px) {
     .footer {
         padding: 5px; /* Adjust padding for small screens */
-        font-size: 14px; /* Smaller font size for mobile */
+        font-size: 10px; /* Smaller font size for mobile */
     }
 }
 
